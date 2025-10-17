@@ -1,0 +1,92 @@
+:root{--bg:#ffffff;--fg:#111827;--muted:#374151;--accent:#2563eb;--border:#e5e7eb}
+[data-theme="dark"]{--bg:#0b1220;--fg:#e5e7eb;--muted:#9ca3af;--accent:#60a5fa;--border:#1f2937}
+html,body{background:var(--bg);color:var(--fg);padding:0;margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial}
+a{color:var(--accent);text-decoration:none}
+button{cursor:pointer}
+.container{max-width:960px;margin:0 auto;padding:1rem}
+.card{border:1px solid var(--border);border-radius:12px;padding:1rem}
+.hamburger{width:28px;height:20px;display:inline-flex;flex-direction:column;justify-content:space-between}
+.hamburger span{display:block;height:3px;background:var(--fg);transform-origin:center;transition:transform .25s, opacity .25s}
+.hamburger.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
+nav a{padding:.5rem .75rem;display:inline-block;border-radius:8px}
+nav a[aria-current="page"]{background:var(--border)}
+input,textarea{background:transparent;color:var(--fg);border:1px solid var(--border);border-radius:10px;padding:.5rem;width:100%}
+label{display:block;margin:.5rem 0 .25rem}
+hr{border:none;border-top:1px solid var(--border);margin:1rem 0}
+.small{color:var(--muted);font-size:.9rem}
+.icon { width:18px; height:18px; vertical-align:middle; margin-right:6px; }
+/* icon sizing/alignment */
+.icon{width:18px;height:18px;vertical-align:middle;margin-right:6px;display:inline-block}
+
+/* two even columns, aligned to top */
+.grid-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}
+
+/* rows with consistent vertical alignment */
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+/* blocky labels that align radios/checkboxes nicely */
+.choice{display:flex;align-items:flex-start;gap:8px;margin:6px 0}
+
+/* ---------- Court page polish (scoped) ---------- */
+section[aria-labelledby="court-title"] h1{margin:0 0 .5rem}
+section[aria-labelledby="court-title"] hr{margin:1rem 0}
+
+/* timer row */
+section[aria-labelledby="court-title"] .row{gap:10px}
+section[aria-labelledby="court-title"] .row input[type="number"]{height:32px;border-radius:8px;padding:0 .5rem}
+
+/* main two columns – align to top, give breathing room */
+section[aria-labelledby="court-title"] .grid-2{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:16px;
+  align-items:start;
+}
+@media (max-width: 820px){
+  section[aria-labelledby="court-title"] .grid-2{grid-template-columns:1fr}
+}
+
+/* cards */
+section[aria-labelledby="court-title"] .card{padding:16px;border-radius:12px}
+
+/* section headings inside cards */
+section[aria-labelledby="court-title"] .card h3{margin:0 0 .5rem}
+
+/* evidence/witness rows: make checkbox/radio in a fixed column */
+section[aria-labelledby="court-title"] .choice{
+  display:grid;
+  grid-template-columns:24px 1fr;
+  align-items:start;
+  gap:10px;
+  margin:6px 0;
+}
+section[aria-labelledby="court-title"] .choice input[type="checkbox"],
+section[aria-labelledby="court-title"] .choice input[type="radio"]{
+  margin-top:3px; /* vertically centers bullets vs text */
+}
+section[aria-labelledby="court-title"] ul{list-style:none;margin:0;padding:0}
+
+/* evidence detail (the small line showing when checked) */
+section[aria-labelledby="court-title"] .choice + .small{
+  margin:2px 0 8px 34px; /* indent to align with label text */
+  line-height:1.25
+}
+
+/* arguments column: make claims/defenses look balanced */
+section[aria-labelledby="court-title"] .card .grid-2{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:16px;
+}
+
+/* jury slider + verdict row */
+section[aria-labelledby="court-title"] .small{color:var(--muted)}
+section[aria-labelledby="court-title"] .row button{height:32px;border-radius:10px;padding:.25rem .6rem}
+
+/* icons sizing */
+.icon{width:18px;height:18px;vertical-align:middle;margin-right:6px;display:inline-block}
+
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:9999}
+.modal-card{background:var(--bg);color:var(--fg);width:min(520px,92vw);border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);padding:16px}

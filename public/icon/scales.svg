@@ -1,0 +1,4 @@
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <line x1="12" y1="4" x2="12" y2="20"></line><line x1="5" y1="7" x2="19" y2="7"></line>
+  <path d="M7 7l-3 6a4 4 0 0 0 8 0l-3-6M13 7l3 6a4 4 0 0 0 8 0l-3-6" transform="scale(.5) translate(6 6)"></path>
+</svg>

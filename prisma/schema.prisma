@@ -1,0 +1,44 @@
+// This is your Prisma schema file
+// Replace EVERYTHING in prisma/schema.prisma with this
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Decision {
+  id              Int      @id @default(autoincrement())
+  caseId          String
+  caseType        String   // "Traffic", "Contract", "Theft"
+  caseTitle       String
+  caseSummary     String
+  
+  // Evidence selection (stored as JSON array of IDs)
+  selectedEvidence String  // JSON: ["e1-abc", "e2-def"]
+  
+  // Witness selection
+  selectedWitness String?  // Can be null if "No witness"
+  
+  // Objection
+  objection       String   @default("none") // "relevance", "hearsay", "leading", "none"
+  
+  // Jury votes
+  juryVotesGuilty Int      @default(0)
+  
+  // Notes
+  notes           String   @default("")
+  
+  // Calculated strength
+  strength        Float
+  
+  // Timestamp
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([caseType])
+  @@index([createdAt])
+}
