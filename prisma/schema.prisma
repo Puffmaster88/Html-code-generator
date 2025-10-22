@@ -18,6 +18,7 @@ model Decision {
   caseSummary  String
   evidence     String   // JSON string of selected evidence
   witness      String?  // JSON string of selected witness
+  selectedEvidence  String
   objection    String?
   juryVotes    String   // JSON string of jury votes
   notes        String?
