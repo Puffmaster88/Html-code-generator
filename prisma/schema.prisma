@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"  // Back to sqlite for EC2 deployment
+  provider = "postgresql"  // Make sure it says postgresql, NOT sqlite
   url      = env("DATABASE_URL")
 }
 
