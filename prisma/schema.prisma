@@ -11,20 +11,20 @@ datasource db {
 }
 
 model Decision {
-  id           Int      @id @default(autoincrement())
-  caseId       String
-  caseType     String
-  caseTitle    String
-  caseSummary  String
-  evidence     String   // JSON string of selected evidence
-  witness      String?  // JSON string of selected witness
-  selectedEvidence  String
-  objection    String?
-  juryVotes    String   // JSON string of jury votes
-  notes        String?
-  strength     Int
-  timestamp    DateTime @default(now())
+  id                  Int      @id @default(autoincrement())
+  caseType            String
+  caseTitle           String
+  caseSummary         String
+  selectedEvidence    String   // ADD THIS!
+  selectedWitness     String?
+  objection           String?
+  juryVotesGuilty     Int?
+  juryVotesNotGuilty  Int?
+  verdict             String?
+  caseStrength        Int?
+  notes               String?
+  createdAt           DateTime @default(now())
+}
   
   @@index([caseType])
   @@index([timestamp])
-}
