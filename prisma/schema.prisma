@@ -1,44 +1,29 @@
-// This is your Prisma schema file
-// Replace EVERYTHING in prisma/schema.prisma with this
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "sqlite"  // Back to sqlite for EC2 deployment
   url      = env("DATABASE_URL")
 }
 
 model Decision {
-  id              Int      @id @default(autoincrement())
-  caseId          String
-  caseType        String   // "Traffic", "Contract", "Theft"
-  caseTitle       String
-  caseSummary     String
-  
-  // Evidence selection (stored as JSON array of IDs)
-  selectedEvidence String  // JSON: ["e1-abc", "e2-def"]
-  
-  // Witness selection
-  selectedWitness String?  // Can be null if "No witness"
-  
-  // Objection
-  objection       String   @default("none") // "relevance", "hearsay", "leading", "none"
-  
-  // Jury votes
-  juryVotesGuilty Int      @default(0)
-  
-  // Notes
-  notes           String   @default("")
-  
-  // Calculated strength
-  strength        Float
-  
-  // Timestamp
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id           Int      @id @default(autoincrement())
+  caseId       String
+  caseType     String
+  caseTitle    String
+  caseSummary  String
+  evidence     String   // JSON string of selected evidence
+  witness      String?  // JSON string of selected witness
+  objection    String?
+  juryVotes    String   // JSON string of jury votes
+  notes        String?
+  strength     Int
+  timestamp    DateTime @default(now())
   
   @@index([caseType])
-  @@index([createdAt])
+  @@index([timestamp])
 }
