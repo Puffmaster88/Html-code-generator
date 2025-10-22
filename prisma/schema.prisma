@@ -15,7 +15,7 @@ model Decision {
   caseType            String
   caseTitle           String
   caseSummary         String
-  selectedEvidence    String   // ADD THIS!
+  selectedEvidence    String
   selectedWitness     String?
   objection           String?
   juryVotesGuilty     Int?
@@ -24,7 +24,7 @@ model Decision {
   caseStrength        Int?
   notes               String?
   createdAt           DateTime @default(now())
-}
   
   @@index([caseType])
-  @@index([createdAt])  // Changed from "timestamp" to "createdAt"
+  @@index([createdAt])
+}

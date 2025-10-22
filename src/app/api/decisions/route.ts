@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     
     const decision = await prisma.decision.create({
       data: {
-        caseId: body.caseId,
+        //caseId: body.caseId,
         caseType: body.caseType,
         caseTitle: body.caseTitle,
         caseSummary: body.caseSummary,
@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
         objection: body.objection || 'none',
         juryVotesGuilty: body.juryVotesGuilty || 0,
         notes: body.notes || '',
-        strength: body.strength || 0,
+       // strength: body.strength || 0,
       },
     });
 
@@ -95,7 +95,7 @@ export async function PUT(request: NextRequest) {
     const decision = await prisma.decision.update({
       where: { id: parseInt(id) },
       data: {
-        caseId: data.caseId,
+        //caseId: data.caseId,
         caseType: data.caseType,
         caseTitle: data.caseTitle,
         caseSummary: data.caseSummary,
@@ -104,7 +104,7 @@ export async function PUT(request: NextRequest) {
         objection: data.objection || 'none',
         juryVotesGuilty: data.juryVotesGuilty || 0,
         notes: data.notes || '',
-        strength: data.strength || 0,
+        //strength: data.strength || 0,
       },
     });
 
