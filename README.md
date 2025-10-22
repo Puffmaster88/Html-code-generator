@@ -2,7 +2,7 @@
 
 Live Deployment
 - **URL:** [https://your-vercel-url.vercel.app/court-room](https://assignment2-pb1z055c0-puffmaster80085-8970s-projects.vercel.app/court-room)
-- **Platform:** Vercel (Cloud Deployment)
+- **Platform:** Vercel (Cloud Deployment) (also deployed through aws)
 
 Local Setup
 ```bash
