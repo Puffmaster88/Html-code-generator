@@ -27,4 +27,4 @@ model Decision {
 }
   
   @@index([caseType])
-  @@index([timestamp])
+  @@index([createdAt])  // Changed from "timestamp" to "createdAt"
